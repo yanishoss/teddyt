@@ -1,0 +1,20 @@
+{
+  "namespace": "Teddyt",
+  "fsNamespace": "teddyt",
+  "loader": "../teddyt.js",
+  "corePolyfilled": "es5-build-disabled.js",
+  "global": "teddyt.global.js",
+  "core": "teddyt.core.js",
+  "components": {
+    "teddyt-app": {
+      "bundleIds": {
+        "$": "teddyt-app"
+      }
+    },
+    "teddyt-header": {
+      "bundleIds": {
+        "$": "teddyt-app"
+      }
+    }
+  }
+}

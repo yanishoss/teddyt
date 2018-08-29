@@ -1,0 +1,16 @@
+@import "./_utils.scss";
+
+// Set here your SCSS/CSS variables
+
+$prefix: teddyt;
+
+$properties: (
+  --primary-color: #212121,
+  --secondary-color: #FFFFFF,
+  --hr-color: #E7E7E7,
+  --icon-color: #BDBDBD
+);
+
+:root {
+  @include toCustomProperties($properties);
+}

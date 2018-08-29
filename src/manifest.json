@@ -1,0 +1,6 @@
+{
+  "name": "Teddyt - Text Editor",
+  "short_name": "Teddyt",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,0 +1,19 @@
+// Generates color helpers like Bulma
+@each $k, $v in $properties {
+  $name: null !default;
+
+  @if (str-slice($k, 1, 2) == "--") {
+    $name: str-slice($k, 3, str-length($k) - str-length(-color));
+  } @else {
+    $name: str-slice($k, 1, str-length($k) - str-length(-color));
+    $k: "--" + $k;
+  }
+
+  .#{$prefix}-has-text-#{$name} {
+    color: var(unquote($k)) !important;
+  }
+
+  .#{$prefix}-has-background-#{$name} {
+    background-color: var(unquote($k)) !important;
+  }
+}

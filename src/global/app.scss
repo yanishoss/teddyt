@@ -1,0 +1,16 @@
+// Local imports
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/bulma/bulma.sass";
+
+@import "./_variables.scss";
+@import "./_helpers.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}

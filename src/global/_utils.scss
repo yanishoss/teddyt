@@ -1,0 +1,11 @@
+@mixin toCustomProperties($properties) {
+  $prop: null !default;
+  @each $k, $v in $properties {
+    @if (str-slice($k, 1, 2) == "--") {
+      $prop: $k;   
+    } @else {
+      $prop: "--" + $k;
+    }
+    #{$prop}: $v;
+  }
+}
