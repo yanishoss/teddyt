@@ -16,6 +16,8 @@ div {
   // Generates for each grid-area a corresponding id with the associated grid area.
   @each $area in $areas {
     ##{$area} {
+      min-width: 0;
+      min-height: 0;
       grid-area: #{$area};
     }
   }

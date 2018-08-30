@@ -7,6 +7,9 @@
 import '@stencil/core';
 
 
+import {
+  ITabsData,
+} from './components/tabs/tabs';
 
 
 declare global {
@@ -31,6 +34,16 @@ declare global {
     interface TeddytHeader {
       'projectName': string;
     }
+
+    interface TeddytTab {
+      'isTabActive': boolean;
+      'tabIcon': string;
+      'tabName': string;
+    }
+
+    interface TeddytTabs {
+      'tabsData': ITabsData;
+    }
   }
 
 
@@ -50,11 +63,29 @@ declare global {
     };
     
 
+    interface HTMLTeddytTabElement extends StencilComponents.TeddytTab, HTMLStencilElement {}
+
+    var HTMLTeddytTabElement: {
+      prototype: HTMLTeddytTabElement;
+      new (): HTMLTeddytTabElement;
+    };
+    
+
+    interface HTMLTeddytTabsElement extends StencilComponents.TeddytTabs, HTMLStencilElement {}
+
+    var HTMLTeddytTabsElement: {
+      prototype: HTMLTeddytTabsElement;
+      new (): HTMLTeddytTabsElement;
+    };
+    
+
   namespace JSX {
     interface Element {}
     export interface IntrinsicElements {
     'teddyt-app': JSXElements.TeddytAppAttributes;
     'teddyt-header': JSXElements.TeddytHeaderAttributes;
+    'teddyt-tab': JSXElements.TeddytTabAttributes;
+    'teddyt-tabs': JSXElements.TeddytTabsAttributes;
     }
   }
 
@@ -70,16 +101,32 @@ declare global {
       'onSaveProject'?: (event: CustomEvent<string>) => void;
       'projectName'?: string;
     }
+
+    export interface TeddytTabAttributes extends HTMLAttributes {
+      'isTabActive'?: boolean;
+      'onTabActive'?: (event: CustomEvent<string>) => void;
+      'onTabClosed'?: (event: CustomEvent<string>) => void;
+      'tabIcon'?: string;
+      'tabName'?: string;
+    }
+
+    export interface TeddytTabsAttributes extends HTMLAttributes {
+      'tabsData'?: ITabsData;
+    }
   }
 
   interface HTMLElementTagNameMap {
     'teddyt-app': HTMLTeddytAppElement
     'teddyt-header': HTMLTeddytHeaderElement
+    'teddyt-tab': HTMLTeddytTabElement
+    'teddyt-tabs': HTMLTeddytTabsElement
   }
 
   interface ElementTagNameMap {
     'teddyt-app': HTMLTeddytAppElement;
     'teddyt-header': HTMLTeddytHeaderElement;
+    'teddyt-tab': HTMLTeddytTabElement;
+    'teddyt-tabs': HTMLTeddytTabsElement;
   }
 }
 declare global { namespace JSX { interface StencilJSX {} } }

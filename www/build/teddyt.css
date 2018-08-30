@@ -7768,7 +7768,9 @@ label.panel-block {
   --primary-color: #212121;
   --secondary-color: #FFFFFF;
   --hr-color: #E7E7E7;
-  --icon-color: #BDBDBD; }
+  --icon-color: #BDBDBD;
+  --cyan-color: #00d1b2;
+  --red-color: #ff3860; }
 
 .teddyt-has-text-primary {
   color: var(--primary-color) !important; }
@@ -7793,6 +7795,18 @@ label.panel-block {
 
 .teddyt-has-background-icon {
   background-color: var(--icon-color) !important; }
+
+.teddyt-has-text-cyan {
+  color: var(--cyan-color) !important; }
+
+.teddyt-has-background-cyan {
+  background-color: var(--cyan-color) !important; }
+
+.teddyt-has-text-red {
+  color: var(--red-color) !important; }
+
+.teddyt-has-background-red {
+  background-color: var(--red-color) !important; }
 
 *, *::before, *::after {
   -webkit-box-sizing: border-box;

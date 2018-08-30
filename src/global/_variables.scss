@@ -8,7 +8,9 @@ $properties: (
   --primary-color: #212121,
   --secondary-color: #FFFFFF,
   --hr-color: #E7E7E7,
-  --icon-color: #BDBDBD
+  --icon-color: #BDBDBD,
+  --cyan-color: $primary,
+  --red-color: $danger
 );
 
 :root {

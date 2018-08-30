@@ -4,10 +4,11 @@ const { h } = window.Teddyt;
 class App {
     render() {
         return (h("div", null,
-            h("teddyt-header", { id: "header" })));
+            h("teddyt-header", { id: "header" }),
+            h("teddyt-tabs", { id: "tabs" })));
     }
     static get is() { return "teddyt-app"; }
-    static get style() { return "div {\n  display: grid;\n  width: 100vw;\n  height: 100vh;\n  grid-template-columns: 250px 1fr;\n  grid-template-rows: 60px 30px 1fr;\n  grid-template-areas: \"header  header\" \"project tabs\" \"project textbox\"; }\n  div #header {\n    grid-area: header; }\n  div #project {\n    grid-area: project; }\n  div #tabs {\n    grid-area: tabs; }\n  div #textbox {\n    grid-area: textbox; }"; }
+    static get style() { return "div {\n  display: grid;\n  width: 100vw;\n  height: 100vh;\n  grid-template-columns: 250px 1fr;\n  grid-template-rows: 60px 30px 1fr;\n  grid-template-areas: \"header  header\" \"project tabs\" \"project textbox\"; }\n  div #header {\n    min-width: 0;\n    min-height: 0;\n    grid-area: header; }\n  div #project {\n    min-width: 0;\n    min-height: 0;\n    grid-area: project; }\n  div #tabs {\n    min-width: 0;\n    min-height: 0;\n    grid-area: tabs; }\n  div #textbox {\n    min-width: 0;\n    min-height: 0;\n    grid-area: textbox; }"; }
 }
 
 function createCommonjsModule(fn, module) {
@@ -1717,7 +1718,7 @@ class Header {
         }
     }
     render() {
-        return (h("header", { class: "has-background-secondary" },
+        return (h("header", { class: "teddyt-has-background-secondary" },
             h("img", { src: "/assets/images/logo.svg", class: "logo", alt: "teddyt logo" }, "Logo"),
             h("div", { class: "project-name-box" },
                 h("h1", { class: "title teddyt-has-text-primary is-marginless has-text-weight-bold", contentEditable: true, onKeyDown: this.handleKeyBindings.bind(this), onInput: this.handleNameChange.bind(this), onPaste: this.handlePaste.bind(this), onDrop: this.handleDragAndDrop.bind(this), ref: (el) => { this.projectNameRef = el; } }, this.projectName),
@@ -1753,7 +1754,169 @@ class Header {
             "cancelable": true,
             "composed": true
         }]; }
-    static get style() { return "header {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n  width: 100%;\n  height: 100%;\n  padding: 0 0.5rem;\n  border-bottom: solid 2px var(--hr-color);\n  -webkit-box-pack: space-evenly;\n  -ms-flex-pack: space-evenly;\n  justify-content: space-evenly;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center; }\n  header .logo {\n    width: auto;\n    height: 3.125rem; }\n  header .project-name-box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: -webkit-fit-content;\n    width: -moz-fit-content;\n    width: fit-content;\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    -webkit-box-pack: space-evenly;\n    -ms-flex-pack: space-evenly;\n    justify-content: space-evenly;\n    -webkit-box-align: center;\n    -ms-flex-align: center;\n    align-items: center; }\n    header .project-name-box i {\n      margin-left: 0.5rem; }\n    header .project-name-box h1:focus {\n      outline: none; }\n  header .control-box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: -webkit-fit-content;\n    width: -moz-fit-content;\n    width: fit-content;\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    -webkit-box-pack: space-evenly;\n    -ms-flex-pack: space-evenly;\n    justify-content: space-evenly;\n    -webkit-box-align: center;\n    -ms-flex-align: center;\n    align-items: center; }\n    header .control-box > *:not(:last-child) {\n      margin-right: 0.75rem; }"; }
+    static get style() { return "header {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n  max-width: 100vw;\n  height: 100%;\n  padding: 0 0.5rem;\n  border-bottom: 2px solid var(--hr-color);\n  -webkit-box-pack: space-evenly;\n  -ms-flex-pack: space-evenly;\n  justify-content: space-evenly;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center; }\n  header .logo {\n    width: auto;\n    height: 3.125rem; }\n  header .project-name-box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: -webkit-fit-content;\n    width: -moz-fit-content;\n    width: fit-content;\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    -webkit-box-pack: space-evenly;\n    -ms-flex-pack: space-evenly;\n    justify-content: space-evenly;\n    -webkit-box-align: center;\n    -ms-flex-align: center;\n    align-items: center; }\n    header .project-name-box i {\n      margin-left: 0.5rem; }\n    header .project-name-box h1:focus {\n      outline: none; }\n  header .control-box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: -webkit-fit-content;\n    width: -moz-fit-content;\n    width: fit-content;\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    -webkit-box-pack: space-evenly;\n    -ms-flex-pack: space-evenly;\n    justify-content: space-evenly;\n    -webkit-box-align: center;\n    -ms-flex-align: center;\n    align-items: center; }\n    header .control-box > *:not(:last-child) {\n      margin-right: 0.75rem; }"; }
 }
 
-export { App as TeddytApp, Header as TeddytHeader };
+class Tab {
+    constructor() {
+        // The tab name (the "file" name if you prefer)
+        this.tabName = "Untitled";
+        // The icon corresponding to the file extension (tabIcon is the class of the icon)
+        this.tabIcon = "far fa-file teddyt-has-text-icon";
+        // The state of the tab (either active or not, active means that the file is being edited)
+        this.isTabActive = true;
+    }
+    // Emits tabClosed event
+    handleClose() {
+        this.tabClosed.emit(this.tabName);
+    }
+    // Emits tabActive event
+    handleActive() {
+        this.tabActive.emit(this.tabName);
+    }
+    render() {
+        return (h("li", { class: `${this.isTabActive ? "active" : null}`, onClick: this.handleActive.bind(this) },
+            h("i", { class: this.tabIcon, onMouseDown: (e) => e.preventDefault() }),
+            h("a", { class: "teddyt-has-text-primary is-paddingless is-unselectable", onMouseDown: (e) => e.preventDefault() }, this.tabName),
+            h("i", { class: `fas fa-times cross`, onClick: this.handleClose.bind(this) })));
+    }
+    static get is() { return "teddyt-tab"; }
+    static get properties() { return {
+        "isTabActive": {
+            "type": Boolean,
+            "attr": "is-tab-active"
+        },
+        "tabIcon": {
+            "type": String,
+            "attr": "tab-icon"
+        },
+        "tabName": {
+            "type": String,
+            "attr": "tab-name"
+        }
+    }; }
+    static get events() { return [{
+            "name": "tabClosed",
+            "method": "tabClosed",
+            "bubbles": true,
+            "cancelable": true,
+            "composed": true
+        }, {
+            "name": "tabActive",
+            "method": "tabActive",
+            "bubbles": true,
+            "cancelable": true,
+            "composed": true
+        }]; }
+    static get style() { return "li {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  min-width: 2.5rem;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: 1.875rem;\n  padding: 0 0.625rem !important;\n  -webkit-box-pack: space-evenly;\n  -ms-flex-pack: space-evenly;\n  justify-content: space-evenly;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  background-color: var(--secondary-color);\n  border-width: 0.05rem;\n  border-style: solid;\n  border-color: var(--hr-color);\n  list-style: none; }\n  li.active {\n    border-bottom: 0.1875rem solid var(--cyan-color); }\n  li > *:not(:last-child) {\n    margin-right: 0.5rem; }\n  li i.cross,\n  li i.cross {\n    color: var(--icon-color);\n    cursor: click; }\n    li i.cross:hover, li i.cross:active,\n    li i.cross:hover,\n    li i.cross:active {\n      color: var(--red-color); }\n  li a,\n  li a:visited,\n  li a:active {\n    cursor: default; }"; }
+}
+
+// getDifferences looks at obj1 and obj2,
+// it returns the keys present in obj1 that are not present in obj2
+function getDifferences(obj1, obj2) {
+    let differences = [];
+    for (const k in obj1) {
+        if (obj2[k]) {
+            continue;
+        }
+        differences = [...differences, k];
+    }
+    return differences;
+}
+
+class Tabs {
+    constructor() {
+        // The tabs informations (see ITabData and ITabsData)
+        this.tabsData = [];
+    }
+    // Deletes the references of the deleted tabs
+    deleteRefs(newTabsData, oldTabsData) {
+        getDifferences(oldTabsData, newTabsData).forEach((tabName) => {
+            delete this.tabsRefs[tabName];
+        });
+    }
+    // Starts the draggable mode
+    enableDraggableMode(e) {
+        if (e.srcElement["s-hn"] === "teddyt-tab" && !e.srcElement.classList.contains("cross")) {
+            const tabKey = Object.keys(this.tabsRefs).find((key) => {
+                return this.tabsRefs[key].contains(e.srcElement);
+            });
+            this.draggedTab = this.tabsRefs[tabKey];
+            this.draggedTabX = e.clientX - this.element.offsetLeft - this.draggedTab.offsetLeft;
+        }
+    }
+    // Disables the draggable mode
+    disableDraggableMode() {
+        if (this.draggedTab) {
+            const tabs = Object.keys(this.tabsRefs).map((k) => this.tabsRefs[k]);
+            const tab = tabs.find((el) => this.draggedTab.offsetLeft >= el.offsetLeft && this.draggedTab.offsetLeft <= el.offsetLeft + this.draggedTab.offsetWidth && el !== this.draggedTab);
+            const order = parseInt(tab.style.order);
+            // Assumes that if the tab is forward another one, the tab will be placed forward 
+            // Else backward
+            if (this.draggedTab.offsetLeft >= tab.offsetLeft + tab.offsetWidth / 2) {
+                this.draggedTab.style.order = String(order + 1);
+                // Remaps the correct order for the next elements
+                tabs.forEach((el) => {
+                    if (el !== this.draggedTab && parseInt(el.style.order) >= order + 1) {
+                        el.style.order = String(parseInt(el.style.order) + 1);
+                    }
+                });
+            }
+            else {
+                this.draggedTab.style.order = String(order - 1);
+                // Remaps the correct order for the previous elements
+                tabs.forEach((el) => {
+                    if (el !== this.draggedTab && parseInt(el.style.order) <= order - 1) {
+                        el.style.order = String(parseInt(el.style.order) - 1);
+                    }
+                });
+            }
+            this.draggedTab.style.position = "initial";
+            this.draggedTab = null;
+        }
+    }
+    // Moves the tab
+    dragTab(e) {
+        if (this.draggedTab) {
+            this.draggedTab.style.position = "absolute";
+            const posX = e.clientX - this.element.offsetLeft - this.draggedTabX;
+            // Limits the area to the tabs zone
+            if (posX + this.element.offsetLeft >= this.element.offsetLeft && posX + this.draggedTab.offsetWidth + this.element.offsetLeft <= this.element.offsetLeft + this.element.offsetWidth) {
+                this.draggedTab.style.left = `${String(posX)}px`;
+            }
+        }
+    }
+    render() {
+        return (h("section", null, this.tabsData.map(({ tabName, tabIcon, isTabActive }, i) => (h("teddyt-tab", { tabName: tabName, tabIcon: tabIcon, isTabActive: isTabActive, ref: (e) => {
+                e.style.order = String(i);
+                this.tabsRefs = Object.assign({}, this.tabsRefs, { [tabName]: e });
+            } })))));
+    }
+    static get is() { return "teddyt-tabs"; }
+    static get properties() { return {
+        "element": {
+            "elementRef": true
+        },
+        "tabsData": {
+            "type": "Any",
+            "attr": "tabs-data",
+            "watchCallbacks": ["deleteRefs"]
+        }
+    }; }
+    static get listeners() { return [{
+            "name": "mousedown",
+            "method": "enableDraggableMode",
+            "passive": true
+        }, {
+            "name": "mouseup",
+            "method": "disableDraggableMode",
+            "passive": true
+        }, {
+            "name": "mousemove",
+            "method": "dragTab",
+            "passive": true
+        }]; }
+    static get style() { return "section {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n  overflow: scroll;\n  -webkit-box-pack: start;\n  -ms-flex-pack: start;\n  justify-content: flex-start;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  position: relative; }\n  section::-webkit-scrollbar {\n    display: block;\n    height: 0.30rem; }\n    section::-webkit-scrollbar-thumb {\n      background-color: var(--icon-color);\n      border-radius: 20px; }\n  section .arrow {\n    margin-right: 1rem; }\n    section .arrow-left {\n      justify-self: flex-start; }\n    section .arrow-right {\n      justify-self: flex-end; }"; }
+}
+
+export { App as TeddytApp, Header as TeddytHeader, Tab as TeddytTab, Tabs as TeddytTabs };

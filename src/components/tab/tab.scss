@@ -1,0 +1,39 @@
+li {
+  display: flex;
+  min-width: 2.5rem;
+  width: fit-content;
+  height: 1.875rem;
+  padding: 0 0.625rem !important;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-width: 0.05rem;
+  border-style: solid;
+  border-color: var(--hr-color);
+  list-style: none;
+
+  &.active {
+    border-bottom: 0.1875rem solid var(--cyan-color);
+  }
+
+  > *:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+
+  i.cross,
+  i.cross {
+    color: var(--icon-color);
+    cursor: click;
+
+    &:hover,
+    &:active {
+      color: var(--red-color);
+    }
+  }
+  
+  a,
+  a:visited,
+  a:active {
+    cursor: default;
+  }
+}

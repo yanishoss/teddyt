@@ -1,6 +1,6 @@
 /*!
  * Built with http://stenciljs.com
- * 2018-07-29T22:46:21
+ * 2018-07-30T23:35:48
  */
 (function(win, doc, namespace, fsNamespace, resourcesUrl, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components) {
 
@@ -135,4 +135,4 @@ function createComponentOnReadyPrototype(win, namespace, HTMLElementPrototype) {
 
   init(win, doc, namespace, fsNamespace, resourcesUrl, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components);
 
-  })(window, document, "Teddyt","teddyt",0,"teddyt.core.js","es5-build-disabled.js","hydrated",[["teddyt-app","teddyt-app",1],["teddyt-header","teddyt-app",1,[["projectName",2,0,"project-name",2]]]],HTMLElement.prototype);
+  })(window, document, "Teddyt","teddyt",0,"teddyt.core.js","es5-build-disabled.js","hydrated",[["teddyt-app","teddyt-app",1],["teddyt-header","teddyt-app",1,[["projectName",2,0,"project-name",2]]],["teddyt-tab","teddyt-app",1,[["isTabActive",1,0,"is-tab-active",3],["tabIcon",1,0,"tab-icon",2],["tabName",1,0,"tab-name",2]]],["teddyt-tabs","teddyt-app",1,[["element",7],["tabsData",1]],0,[["mousedown","enableDraggableMode",0,1],["mouseup","disableDraggableMode",0,1],["mousemove","dragTab",0,1]]]],HTMLElement.prototype);

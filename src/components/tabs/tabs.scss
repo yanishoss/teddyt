@@ -1,0 +1,29 @@
+section {
+  display: flex !important;
+  overflow: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  
+  &::-webkit-scrollbar {
+    display: block;
+    height: 0.30rem;
+  
+    &-thumb {
+      background-color: var(--icon-color);
+      border-radius: 20px;
+    }
+  }
+
+  .arrow {
+    &-left {
+      justify-self: flex-start;
+    }
+
+    &-right {
+      justify-self: flex-end;
+    }
+    
+    margin-right: 1rem;
+  }
+}

@@ -99,17 +99,17 @@ export class Header {
 
   render(): JSX.StencilJSX {
     return (
-      <header class="has-background-secondary">
+      <header class="teddyt-has-background-secondary">
         <img src="/assets/images/logo.svg" class="logo" alt="teddyt logo">Logo</img>
         <div class="project-name-box">
-          <h1 class="title teddyt-has-text-primary is-marginless has-text-weight-bold" 
+          <h1 class="title teddyt-has-text-primary is-marginless has-text-weight-bold"
             contentEditable
-            onKeyDown={this.handleKeyBindings.bind(this)} 
+            onKeyDown={this.handleKeyBindings.bind(this)}
             onInput={this.handleNameChange.bind(this)}
             onPaste={this.handlePaste.bind(this)}
             onDrop={this.handleDragAndDrop.bind(this)}
-            ref={(el: HTMLElement) => {this.projectNameRef = el}}
-            >{this.projectName}</h1>
+            ref={(el: HTMLElement) => { this.projectNameRef = el }}
+          >{this.projectName}</h1>
           <i class="fas fa-edit teddyt-has-text-icon"></i>
         </div>
         <div class="control-box">
