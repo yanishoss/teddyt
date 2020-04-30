@@ -7,7 +7,9 @@
     "build": "stencil build --prerender",
     "start": "stencil build --dev --watch --serve",
     "test": "jest",
-    "test.watch": "jest --watch"
+    "test.watch": "jest --watch",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "@stencil/core": "^0.11.0",
@@ -16,7 +18,8 @@
     "bulma": "0.7.1",
     "font-awesome": "4.7.0",
     "normalize.css": "8.0.0",
-    "xss": "1.0.3"
+    "xss": "1.0.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
@@ -44,5 +47,6 @@
       "json",
       "jsx"
     ]
-  }
+  },
+  "snyk": true
 }
